@@ -1,7 +1,6 @@
 package br.com.zeroglosa
 
 class BookController {
-    static scaffold = true
 
     def bookService
 
@@ -11,4 +10,17 @@ class BookController {
 
         [bookList: bookList]
     }
+
+    def populate() {
+        Boolean success = bookService.populate()
+
+        String message
+        if (success) {
+            message = "Livros inseridos com sucesso"
+        } else {
+            message = "Houce um erro ao persistir"
+        }
+    }
+
+
 }
